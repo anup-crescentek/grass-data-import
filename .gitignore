@@ -1,0 +1,11 @@
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+*~
+
+# Claude Code local settings (per-machine)
+.claude/
+
+# Node (none committed, but just in case)
+node_modules/
