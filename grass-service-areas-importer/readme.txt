@@ -1,17 +1,31 @@
 === Grass Service Areas Importer ===
-Version 1.3.0
+Version 1.7.0
 
 What it does
 ------------
 Imports the REAL per-city content from the original grasshouston.com into the
-Service Areas (services-areas) pages, mapped EXACTLY like the live Houston page,
-for all 23 full cities. It matches by slug and updates in place, so it BOTH:
-  - corrects existing pages that currently show Houston content (Katy, Spring,
-    Richmond, Fulshear, Tomball, Willis, Magnolia, Friendswood, Houston), AND
-  - creates the 14 missing pages (League City, Humble, Kingwood, Missouri City,
-    Rosenberg, Pasadena, Clear Lake, Baytown, Pearland, The Woodlands, Conroe,
-    Sugar Land, Cypress, Hockley).
-(Jersey Village is skipped — the source has no real content for it.)
+Service Areas (services-areas) pages, mapped EXACTLY like the live Houston page.
+It matches by slug and updates in place, correcting pages that show Houston
+content and creating any that are missing. The dataset now covers all 24 cities
+(Jersey Village was added in 1.7.0 — see below).
+
+SCOPED RUN (this version)
+-------------------------
+This build is gated by grass_sai_active_slugs() to ONLY create/update:
+  jersey-village-tx
+Every other city is SKIPPED and left completely untouched, so the 23 already-
+imported pages are not re-written. The admin page shows a "Scoped run" notice.
+Empty grass_sai_active_slugs() to process every city again.
+
+Jersey Village (added 1.7.0)
+----------------------------
+Jersey Village was a stub in the source (basic location data only), so its page
+was previously left as a Houston duplicate (wrong body content; grass cards
+showed all three varieties). This version adds a full Jersey-Village-specific
+entry — mature-canopy shade, White Oak Bayou drainage/flood focus, clay
+subgrades, Jersey Meadow Golf Course — built from the source skeleton plus
+hand-written copy, with the grass toggles corrected to St. Augustine only
+(Bermuda + Zoysia off).
 
 What gets written per city
 --------------------------

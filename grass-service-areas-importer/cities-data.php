@@ -2080,5 +2080,92 @@ Hockley hybrid sod-plus-hydroseed work is the third defining segment and the mod
 				'why_choose' => array('Fully licensed and insured across Greater Houston','2,400+ properties installed since 2014','Residential, commercial, and acreage specialists','Free estimates and consultative quotes — many quoted right over the phone','In-house sod and hydroseeding crews — not subcontracted','Coordinated with your builder, irrigation, and HOA','Workmanship warranty on every install','TXDOT and municipal-spec hydroseeding blends','Written scope of work on every project'),
 			),
 		),
+		array(
+			'name' => 'Jersey Village', 'slug' => 'jersey-village-tx',
+			'fields' => array(
+				'short_heading' => 'Jersey Village',
+				'heading_text' => 'Sod Installation & Grass Establishment in Jersey Village, TX',
+				'short_description_listing_view' => 'Established northwest Houston neighborhoods with mature trees and tight lots.',
+				'short_description' => 'Established northwest Houston neighborhoods with mature trees and tight lots.',
+				'tagline' => '"Sod where appearance matters most. Hydroseeding where scale matters most."',
+				'installation_done' => '95+ installed · Since 2019',
+				'lawn_establishment_heading' => 'Premium sod & lawn establishment for Jersey Village, TX properties',
+				'lawn_establishment_sub_heading' => 'Whether you\'re a homeowner upgrading the front yard, a builder finishing a custom home, or an HOA restoring entry-feature lawns — GrassHouston brings the right mix of sod, hydroseeding, and hybrid solutions to Jersey Village, Texas.',
+				'lawn_establishment_content' => 'Jersey Village is a small, established city tucked into northwest Houston along US-290 and Beltway 8, and two things define almost every lawn install we do here: mature tree canopy and aging drainage. Decades of growth have left the older sections shaded by live oak and pine, while the original drainage systems were never built for the rainfall this part of Harris County now sees. Shade tolerance and drainage are the conversation in Jersey Village, long before appearance.
+
+St. Augustine is the right grass for almost every Jersey Village lot. Its broad blade and strong shade tolerance handle the mature canopy that Bermuda simply cannot survive under, and it holds up on the clay subgrades that run through the older neighborhoods. We install Bermuda only on the rare full-sun lot with corrected drainage, and Zoysia is uncommon here — the combination of shade and heavy clay favors a quality Palmetto or Raleigh St. Augustine on the overwhelming majority of properties.
+
+White Oak Bayou is the other defining Jersey Village reality. The city flooded hard during the 2016 Tax Day storm and again during Harvey, and a meaningful part of our Jersey Village book is flood and drainage recovery. We never re-sod over a lawn that flooded without first addressing why it flooded — surface regrading, French drains tied into the older storm infrastructure, and elevation review come first, then the new sod.
+
+Recommended grass for Jersey Village: St. Augustine · Soil profile: Clay subgrades with drainage challenges in older sections.',
+				'deep_dive_heading' => 'What makes Jersey Village lawn installation different',
+				'deep_dive_content' => 'Jersey Village, Texas is a distinct municipality surrounded by the City of Houston, and its lawn-install profile has more in common with the older, tree-heavy neighborhoods inside the Loop than with the newer master-planned suburbs further out US-290. The defining factors are a mature canopy across most established streets, clay subgrades that drain slowly, and an older municipal drainage network that has struggled to keep pace with modern rainfall. Roughly 95 of our installs since 2019 have been in Jersey Village, and nearly all of them have started with a shade-and-drainage assessment before any grass variety was selected.
+
+Mature shade is the first constraint. The established sections of Jersey Village proper sit under 40-plus years of live oak and pine, which means filtered light, surface tree roots competing with new sod, and accumulated leaf litter that shifts soil pH over time. This is exactly the environment St. Augustine was built for — Palmetto and Raleigh St. Augustine carry the shade tolerance and broad-blade coverage these lots need, while Bermuda thins and fails under the same canopy within a season or two. We zone variety selection lot by lot around canopy density and clear out competing surface roots before install.
+
+Drainage is the second, and on many Jersey Village lots it is the whole job. The older neighborhoods sit on clay subgrades with original drainage systems that move water slowly, and proximity to White Oak Bayou puts a band of the city in genuine floodplain. After the 2016 Tax Day flood and Hurricane Harvey, the city invested in detention and channel improvements, but lot-level drainage is still the difference between a lawn that lasts and one that rots from the bottom up. We correct surface grade away from the foundation, install French drains where the clay holds water, and review elevation on the lower-lying lots before we lay a single piece of sod.
+
+Lot-size variation is the third Jersey Village factor. The city mixes tight original lots with larger properties near Jersey Meadow Golf Course and along the bayou, so there is no single Jersey Village spec — a quarter-acre shaded lot off the golf course and a tighter older interior lot need different drainage, different access planning, and sometimes different install methods. We quote each property on its own canopy, drainage, and lot conditions rather than applying a generic northwest-Houston template.',
+				'grass_installation_conetent' => '<p class="text-stone-600 mb-5 leading-relaxed">Clay subgrades with drainage challenges in older sections.</p>
+
+<ul class="space-y-3 mb-6">
+	<li class="flex items-start gap-3 text-stone-700">Front yard, backyard, and full-property sod</li>
+	<li class="flex items-start gap-3 text-stone-700">Hydroseeding for larger residential lots</li>
+	<li class="flex items-start gap-3 text-stone-700">Lawn repair and full replacement</li>
+	<li class="flex items-start gap-3 text-stone-700">Builder and remodel scheduling</li>
+</ul>',
+				'signature_method_content' => '<p class="text-stone-200 mb-5 leading-relaxed">For half-acre-plus properties in Jersey Village, our hybrid model delivers a finished, magazine-worthy front yard with cost-efficient coverage across the rest of the lot.</p>
+
+<ul class="space-y-3 mb-6">
+	<li class="flex items-start gap-3 text-stone-100">Premium sod in front, around home, and patio</li>
+	<li class="flex items-start gap-3 text-stone-100">Engineered hydroseeding across back acreage</li>
+	<li class="flex items-start gap-3 text-stone-100">Smart property zoning for maximum impact</li>
+	<li class="flex items-start gap-3 text-stone-100">Scalable coverage that scales with your budget</li>
+</ul>',
+				'commercial_sod_installation_content' => '<p class="text-stone-600 mb-5 leading-relaxed">Builders, developers, HOAs, schools, churches, and property managers across Jersey Village count on us for bonded, insured, on-schedule sod and lawn installs.</p>
+
+<ul class="space-y-3">
+	<li class="flex items-start gap-3 text-stone-700">New construction final-grade sod installation</li>
+	<li class="flex items-start gap-3 text-stone-700">Builder &amp; developer scheduling</li>
+	<li class="flex items-start gap-3 text-stone-700">HOA common-area sod and restoration</li>
+	<li class="flex items-start gap-3 text-stone-700">Hydroseeding for large lots and slopes</li>
+	<li class="flex items-start gap-3 text-stone-700">Erosion control and SWPPP compliance</li>
+</ul>',
+				'why_choose_us_heading_text' => 'Why Jersey Village customers choose GrassHouston',
+			),
+			'show' => array('st_augustine'=>'1','bermuda'=>'0','zoysia'=>'0'),
+			'faqs' => array(
+				array('question'=>'What grass works best in Jersey Village?','answer'=>'St. Augustine on the overwhelming majority of Jersey Village lots — usually Palmetto or Raleigh. Its broad blade and shade tolerance handle the mature live oak and pine canopy across the established neighborhoods, and it performs on the clay subgrades the older sections sit on. We install Tifway 419 Bermuda only on the rare full-sun lot with corrected drainage, and Zoysia is uncommon here because the shade-and-clay combination favors St. Augustine.'),
+				array('question'=>'Why does drainage matter so much on Jersey Village installs?','answer'=>'Because the older sections sit on slow-draining clay subgrades with original drainage systems, and proximity to White Oak Bayou puts part of the city in genuine floodplain. Sod roots that grow into saturated clay rot from the bottom up. Most successful Jersey Village installs start with surface regrading away from the foundation, French drains where the clay holds water, and an elevation review on lower-lying lots before any grass goes down.'),
+				array('question'=>'Do you handle flood and storm recovery near White Oak Bayou?','answer'=>'Yes — it is a meaningful recurring part of our Jersey Village book. After the 2016 Tax Day flood and Hurricane Harvey, a lot of our work here has been flood recovery, and we always address the underlying drainage failure first — regrading, French drains tied into the storm infrastructure, and elevation review — rather than re-sodding over a lawn that will simply flood again.'),
+				array('question'=>'My lawn is heavily shaded by mature trees — what can you do?','answer'=>'Shade is the most common Jersey Village condition, and St. Augustine is built for it. We pair a shade-tolerant Palmetto or Raleigh St. Augustine with selective canopy limb-up, surface-root pruning, and a soil amendment for the leaf-litter pH shift, so new sod establishes under canopy that would kill Bermuda within a season.'),
+				array('question'=>'Will you handle HOA approval for my re-sod?','answer'=>'Yes — where a community requires it, we ship a pre-filled modification request package with the proposal, matching grass variety, install method, and timing to the community standards so the paperwork clears cleanly before we schedule.'),
+				array('question'=>'How long does a Jersey Village install take?','answer'=>'Most Jersey Village residential installs complete in 1–3 working days. Lots that need French drain installation or surface regrading add a day or two, and full flood-recovery installs with drainage redesign and elevation work typically run 5–10 working days. We confirm the timeline after walking the lot.'),
+				array('question'=>'What does a typical Jersey Village sod install cost?','answer'=>'Pricing depends mostly on drainage scope and canopy work. As a reference: typical front-yard re-sods on Jersey Village lots range from roughly $3,000 to $6,500; lots needing French drains and regrading typically run $7,000 to $13,000; full-yard installs run $5,500 to $13,000; and flood-recovery installs with drainage redesign run higher. We quote every Jersey Village lot after a site walk.'),
+			),
+			'meta' => array(
+				'residential' => array(
+					array('heading'=>'Jersey Village homeowners under mature canopy','content'=>'Re-sod under established live oak and pine canopy with selective limb-up, surface-root pruning, and shade-tolerant Palmetto or Raleigh St. Augustine over an amended surface. The bulk of our Jersey Village residential book.'),
+					array('heading'=>'White Oak Bayou flood-recovery homeowners','content'=>'Post-flood re-sod programs that fix the underlying drainage first — surface regrading, French drains tied into the storm infrastructure, and elevation review — then install water-tolerant St. Augustine. We break repeat-failure cycles instead of perpetuating them.'),
+					array('heading'=>'Older-section homeowners on tight clay lots','content'=>'Interior Jersey Village lots on slow-draining clay subgrades, where drainage correction and careful access planning are built into standard scope and St. Augustine is the default variety.'),
+					array('heading'=>'Jersey Meadow-area pool & outdoor-living projects','content'=>'Premium St. Augustine framing pool decks, patios, and golf-adjacent entertaining zones — coordinated with pool and patio contractors on integrated drainage and shade planning.'),
+				),
+				'commercial' => array(
+					array('heading'=>'Jersey Village custom-build & remodel projects','content'=>'Final-grade sod installs coordinated with custom builders, landscape architects, and irrigation contractors on Jersey Village remodels and infill builds — including drainage review and shade-tolerant variety selection on every spec.'),
+					array('heading'=>'Jersey Village commercial frontages & US-290 corridor','content'=>'Bondable commercial sod installs along the US-290 and Senate Avenue commercial corridors — typically St. Augustine for the shaded frontages, with hybrid sod-plus-hydroseed plans on larger campus installs.'),
+				),
+				'lawn_challenges' => array('Older drainage systems','Mature shade','Lot-size variation'),
+				'we_install_in' => array(
+					array('title'=>'Jersey Village proper','content'=>'The established core of the city under heavy mature canopy on clay subgrades. St. Augustine dominates here — it handles the shade and clay that Bermuda cannot. Most installs require pre-install canopy limb-up, surface-root pruning, and a drainage check.'),
+					array('title'=>'Carverdale-adjacent','content'=>'The Houston neighborhoods bordering Jersey Village to the southeast, with similar older-lot drainage and mixed canopy. We soil-test and elevation-check these lots before quoting; the lot-to-lot variability is wider than in newer northwest-Houston filings.'),
+					array('title'=>'Jersey Meadow area','content'=>'Properties around Jersey Meadow Golf Course, mixing larger shaded lots with golf-adjacent frontage. Premium St. Augustine with drainage corrections built into standard scope; occasional limited Bermuda on the rare full-sun corrected-drainage lot.'),
+					array('title'=>'White Oak Bayou floodplain lots','content'=>'Lower-elevation Jersey Village properties backing up to White Oak Bayou and its tributaries. These lots require coordinated elevation review, French drain installation tied into storm-water infrastructure, and ongoing flood-recovery planning before re-sod.'),
+					array('title'=>'US-290 & Senate Avenue commercial','content'=>'Jersey Village\'s commercial spine along US-290 and Senate Avenue — retail centers and office frontages, typically St. Augustine for the shaded sections with hybrid sod-plus-hydroseed plans on larger installs.'),
+				),
+				'areas_we_serve' => array('Jersey Village proper','Carverdale-adjacent','Jersey Meadow'),
+				'growth_areas' => array('Jersey Meadow Golf Course','White Oak Bayou','US-290 corridor'),
+				'why_choose' => array('Fully licensed and insured across Greater Houston','2,400+ properties installed since 2014','Residential, commercial, and acreage specialists','Free estimates and consultative quotes — many quoted right over the phone','In-house sod and hydroseeding crews — not subcontracted','Coordinated with your builder, irrigation, and HOA','Workmanship warranty on every install','TXDOT and municipal-spec hydroseeding blends','Written scope of work on every project'),
+			),
+		),
 	);
 }

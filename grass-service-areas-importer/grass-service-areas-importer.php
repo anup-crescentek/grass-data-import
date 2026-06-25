@@ -3,7 +3,7 @@
  * Plugin Name:       Grass Service Areas Importer
  * Plugin URI:        https://grasshouston.com
  * Description:        Imports REAL per-city content (from the original grasshouston.com) into the Service Areas ACF fields + native FAQ metabox for all cities, mirroring the live Houston page mapping. Optionally imports the source images. Tools -> Service Areas Import.
- * Version:           1.6.0
+ * Version:           1.7.0
  * Author:            GrassHouston
  * License:           GPL-2.0+
  * Requires at least: 5.8
@@ -101,6 +101,10 @@ function grass_sai_render_page() {
 	<div class="wrap">
 		<h1>Grass Service Areas Importer</h1>
 		<p>Imports the <strong>real per-city content</strong> from the original grasshouston.com into the Service Areas ACF fields. Matches by slug and updates in place (no duplicates), so it both <em>corrects</em> existing pages that show Houston content and <em>creates</em> the missing ones.</p>
+
+		<?php $active = grass_sai_active_slugs(); if ( ! empty( $active ) ) : ?>
+			<div class="notice notice-info inline"><p><strong>Scoped run:</strong> only these <strong><?php echo count( $active ); ?></strong> city page(s) will be created/updated — <code><?php echo implode( '</code>, <code>', array_map( 'esc_html', $active ) ); ?></code>. Every other city is left untouched. To process all cities, empty <code>grass_sai_active_slugs()</code>.</p></div>
+		<?php endif; ?>
 
 		<?php if ( ! $acf_ready ) : ?><div class="notice notice-error"><p><strong>ACF not active.</strong> Activate Advanced Custom Fields first.</p></div><?php endif; ?>
 		<?php if ( ! $cpt_ok ) : ?><div class="notice notice-warning"><p>Post type <code><?php echo esc_html( GRASS_SAI_POST_TYPE ); ?></code> is not registered — activate your Service Areas CPT first.</p></div><?php endif; ?>
@@ -324,8 +328,20 @@ function grass_sai_dump_fields( $fields, $depth ) {
 /* -------------------------------------------------------------------------
  *  Import
  * ---------------------------------------------------------------------- */
+/**
+ * Slugs the importer is allowed to create/update in this run. Everything else in
+ * cities-data.php is skipped, so previously-imported city pages are never touched.
+ * Return an empty array() to lift the gate and process every city.
+ */
+function grass_sai_active_slugs() {
+	return array(
+		'jersey-village-tx',
+	);
+}
+
 function grass_sai_run_import( $dry_run, $do_images, &$img_note ) {
 	$cities  = grass_sai_cities();
+	$active  = grass_sai_active_slugs();
 	$results = array();
 
 	$assign_ids = array();
@@ -344,6 +360,9 @@ function grass_sai_run_import( $dry_run, $do_images, &$img_note ) {
 	}
 
 	foreach ( $cities as $c ) {
+		// Gate: only touch the active slugs (if the gate list is non-empty).
+		if ( ! empty( $active ) && ! in_array( $c['slug'], $active, true ) ) { continue; }
+
 		$existing = get_page_by_path( $c['slug'], OBJECT, GRASS_SAI_POST_TYPE );
 		$action   = $existing ? 'update' : 'create';
 		$post_id  = $existing ? (int) $existing->ID : 0;
