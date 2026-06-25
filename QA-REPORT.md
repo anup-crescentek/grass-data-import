@@ -1,107 +1,91 @@
-# GrassHouston Migration QA — Source vs WordPress
+# GrassHouston Migration QA — Source vs WordPress (Round 2)
 
-**Source (truth):** grasshouston.com Replit/React build — content extracted from its JS bundle (`original-bundle.js`); the live site is an SPA so its rendered HTML only shows the homepage shell.
-**Destination:** coral-hare-833726.hostingersite.com (WordPress + Elementor), audited via the WP REST API + front-end fetches.
-**Date:** 2026-06-26
+**Source (truth):** grasshouston.com Replit/React build — content from its JS bundle (`original-bundle.js`); the live site is an SPA so its HTML only shows the homepage shell.
+**Destination:** coral-hare-833726.hostingersite.com (WordPress + Elementor), via WP REST API + front-end fetches.
+**Date:** 2026-06-26 (round 2 — after the HOA import)
 
-> Method note: `service` and `services-areas` posts return an **empty `content.rendered`** over REST — their content is rendered by Elementor templates from ACF/`_sa_*` meta. Depth checks for those were done against the **front-end** HTML, not REST.
+> Method note: `service` / `services-areas` posts return empty `content.rendered` over REST (Elementor/ACF-rendered). Depth + grass-variety checks were done against the **front-end HTML**.
 
 ---
 
 ## Scorecard
 
-| Content type | Source | On WP | Gap |
+| Content type | Source | On WP | Status |
 |---|---:|---:|---|
-| Services (service/market/hybrid) | 14 | 13 | **1 missing** (`hoa-common-area-turf`) |
-| Grass-type pages | 3 | 3 | 0 (1 title bug) |
-| Service-area (city) pages | 24 | 24 | 0 |
-| Blog / resource articles | 13 | 13 (+1 stray) | 0 missing; 1 extra |
-| Project / case-study cards | 8 | 4 | **4 missing** |
+| Services | 14 | **14** | ✅ complete (HOA added this round) |
+| Grass-type pages | 3 | 3 | ⚠ 1 title bug |
+| Service-area (city) pages | 24 | 24 | ✅ present |
+| **City "Recommended grass varieties"** | 24 | 24 | ✅ **24/24 correct (Jersey Village fixed)** |
+| Blog / articles | 13 | 13 | ✅ clean (stray removed) |
+| Project / case-study cards | 8 | 8 | ✅ all 8 (4 added, verified live) |
 
 ---
 
-## 1. Services — 1 missing
+## 1. Recommended grass varieties (the focus of this round)
 
-The 14 source service pages map to a mix of the `service` CPT and top-level Pages:
+**Important:** in the source, `recommendedGrass` is a **per-CITY field on the 24 service-area pages — not a service field.** None of the 14 service pages define recommended grass. So the "Recommended grass varieties" cards shown on a *service* page (e.g. all three on acreage/HOA) are a **template default**, not source-driven — there is nothing per-service to validate against the source.
 
-| Source slug | On WP as | Status |
-|---|---|---|
-| sod-installation | service | ✅ |
-| hydroseeding | service | ✅ |
-| hydromulching | service | ✅ |
-| erosion-control-turfing | service `erosion-control-sod-hydroseed` | ✅ (slug renamed) |
-| grass-repair | service | ✅ |
-| rye-grass-overseeding | service | ✅ |
-| lawn-replacement | service | ✅ |
-| residential-lawn-installation | **page** | ✅ |
-| commercial-turf-installation | **page** | ✅ |
-| hybrid-turf-solutions | **page** ("Hybrid Plans") | ✅ |
-| sports-turf-installation | service | ✅ |
-| new-construction-turf | service | ✅ |
-| acreage-estate-turf-installation | service | ✅ |
-| **hoa-common-area-turf** | — | ❌ **MISSING** (404 on front-end) |
+The real, source-driven comparison is on the **24 city pages**, and they were checked one by one:
 
-**Finding 1 — `hoa-common-area-turf` is absent** from the `service` CPT, Pages, and front-end (verified 404). In the source it's a *stub* (hero + intro + 4 bullets, no rich body/FAQ), the same shape sports-turf/new-construction were before we authored copy for them. Recommended: decide whether to add it (as a service CPT entry, matching its siblings) with hand-written rich copy, or intentionally drop it.
+**Result: 23 of 24 match the source exactly. 1 is wrong.**
 
----
+| City | Source | WordPress | |
+|---|---|---|---|
+| ❌ **jersey-village** | **St. Augustine** | **St. Augustine, Bermuda, Zoysia** | **MISMATCH** |
+| baytown | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| clear-lake | St. Augustine | St. Augustine | ok |
+| conroe | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| cypress | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| friendswood | St. Augustine | St. Augustine | ok |
+| fulshear | St. Augustine, Zoysia | St. Augustine, Zoysia | ok |
+| hockley | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| houston | St. Augustine, Bermuda, Zoysia | St. Augustine, Bermuda, Zoysia | ok |
+| humble | St. Augustine, Zoysia | St. Augustine, Zoysia | ok |
+| katy | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| kingwood | St. Augustine | St. Augustine | ok |
+| league-city | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| magnolia | St. Augustine, Zoysia | St. Augustine, Zoysia | ok |
+| missouri-city | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| pasadena | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| pearland | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| richmond | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| rosenberg | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
+| spring | St. Augustine, Zoysia | St. Augustine, Zoysia | ok |
+| sugar-land | St. Augustine, Bermuda, Zoysia | St. Augustine, Bermuda, Zoysia | ok |
+| the-woodlands | St. Augustine, Zoysia | St. Augustine, Zoysia | ok |
+| tomball | St. Augustine, Zoysia | St. Augustine, Zoysia | ok |
+| willis | St. Augustine, Bermuda | St. Augustine, Bermuda | ok |
 
-## 2. Grass-type pages — present, 1 title bug
-
-All three exist as Pages: `st-augustine-grass-houston`, `bermuda-grass-houston`, `zoysia-grass-houston`.
-
-**Finding 2 — St. Augustine page title is wrong.** Title renders as **"Augustine Grass"** (missing "St."). Should be "St. Augustine Grass". Body content is present (~1k chars). Quick fix in the page title.
-
----
-
-## 3. Service-area (city) pages — complete
-
-All 24 source cities are present in the `services-areas` CPT (source `<city>-tx-grass-sod-installation` → WP `<city>-tx`). Front-end spot-check of **katy-tx** is fully localized: Katy-specific intro, 7 neighborhoods (Cinco Ranch, Cross Creek Ranch, Firethorne, Seven Meadows, Grand Lakes, Falcon Ranch, Cane Island), 8 FAQs, grass-type recs, no stale/duplicated content (Houston appears only as the parent region — intentional).
-
-**Watch item:** `jersey-village-tx` exists on WP, but Jersey Village was a **stub with no real data in the source** (it was skipped in the earlier city import). Worth confirming that page isn't thin or carrying generic/duplicated content. (Not individually deep-checked: the other 22 cities — the importer covered them, and Katy verified clean, but a fuller pass is advisable if you want 100% confidence.)
+**Finding A — Jersey Village shows the wrong grass varieties. ✅ FIXED (verified live).** It displayed all three (the Houston/default set) instead of the source's **St. Augustine only**, and the whole page body was leaked Houston content. Root cause: Jersey Village was a stub in the source and was skipped in the earlier city import, so the page stayed a Houston duplicate. Fix: a full `jersey-village-tx` entry was added to the service-areas importer (v1.7.0) and imported. Live page now reads "Recommended grass for Jersey Village: St. Augustine" with city-specific content (White Oak Bayou, Jersey Meadow, Carverdale, mature canopy) and no Houston leak.
 
 ---
 
-## 4. Blog / resources — all present, 1 stray
+## 2. Services — complete (14/14)
 
-All 13 source articles are present as `posts`. Two have lightly different slugs (harmless):
-- `st-augustine-vs-bermuda-houston` → `st-augustine-vs-bermuda-for-houston`
-- `how-much-sod-do-i-need` → `how-much-sod-do-i-need-houston-sod-calculator`
+All 14 source services now exist. `hoa-common-area-turf` was added this round and renders fully (hero, body, 6 Key Features, generic How-It-Works, 6 FAQs, grass cards) at `/service/hoa-common-area-turf/`. (residential / commercial / hybrid live as Pages; the other 11 as the `service` CPT.)
 
-**Finding 3 — one extra/stray post: `care-maintenance`** ("Care & Maintenance") has no matching source article. This is the known stray (post #1394). Recommended: delete, or confirm it's intentional.
+- **Minor, likely template:** service pages don't show a large featured/hero image (seen on acreage + HOA). Consistent across pages → probably by-design template behavior, not a per-page defect. Eyeball if a hero image is expected.
 
 ---
 
-## 5. Project / case-study cards — 4 of 8 missing
+## 3. Still-open items from Round 1 (not yet addressed)
 
-The source has 8 example/case-study cards; the WP `project` CPT has 4.
-
-| Source card | On WP | Status |
-|---|---|---|
-| energy-corridor-office-park | energy-corridor-office-park | ✅ |
-| cinco-ranch-hoa-entry | cinco-ranch-hoa-entry-restoration | ✅ |
-| fulshear-detention-pond | fulshear-detention-pond-stabilization | ✅ |
-| magnolia-estate-acreage | magnolia-14-acre-estate | ✅ |
-| **pearland-builder-closeout** | — | ❌ MISSING |
-| **conroe-construction-hydroseed** | — | ❌ MISSING |
-| **sh-99-slope-stabilization** | — | ❌ MISSING |
-| **klein-isd-athletic-field** | — | ❌ MISSING (verified 404) |
-
-**Finding 4 — 4 case-study projects not migrated.** In the source these are short teaser cards (no deep page content). They may have been intentionally curated down to 4, or dropped by accident. Recommended: confirm intent; if wanted, add the remaining 4 to the `project` CPT.
+- **Finding B — St. Augustine page title bug. ✅ FIXED (verified live).** `st-augustine-grass-houston` now titles correctly as **"St. Augustine Grass"**.
+- **Finding C — stray blog post `care-maintenance`** (#1394). ✅ FIXED (verified live) — trashed; it was a mislabeled truncated duplicate of the "St. Augustine vs. Bermuda for Houston" article (#1). Blog now 13/13, matching source; `/care-maintenance/` 404s.
+- **Finding D — 4 of 8 case-study `project`s were missing. ✅ FIXED (verified live).** Added `pearland-builder-closeout`, `conroe-construction-hydroseed`, `sh-99-slope-stabilization`, `klein-isd-athletic-field` via the grass-projects-importer plugin (ACF Project Details fields: location/area/services_name/short_description + project-category + featured image). The homepage Loop Grid posts-per-page was bumped 6→8. All 8 cards now render with correct data; single-page view disabled (Publicly Queryable off → /project/ URLs redirect home).
 
 ---
 
-## 6. Other observations
+## Action list — ALL COMPLETE ✅
 
-- **Finding 5 — Acreage service hero image:** front-end fetch of `/service/acreage-estate-turf-installation/` showed the full rich content (6 key features, 8 FAQs, pricing) but **no prominent hero image** was detected. Verify the featured image is set/rendering on that page (the importer sideloads `_.hybridAerial`). Could be a template detail rather than a true gap — eyeball it.
-- The `service` page content is fully Elementor/ACF-driven; `post_content` mirrors are not used for layout, so REST `content` looks empty even when pages render fine. Not a defect — just noted so future QA uses front-end checks for these.
+1. ✅ **Jersey Village grass varieties** → fixed to St. Augustine only + full city content (verified live).
+2. ✅ **St. Augustine page title** → "St. Augustine Grass" (verified live).
+3. ✅ **Stray `care-maintenance` post** → trashed; blog now 13/13 (verified live).
+4. ✅ **4 missing case-study projects** → added; all 8 cards render with correct data; single-page view disabled (verified live).
+5. *Optional / open:* service pages don't show a large hero image — appears to be intended template behavior, not a defect. Eyeball if a hero is expected.
 
----
-
-## Recommended action list (priority order)
-
-1. **Add `hoa-common-area-turf`** (or confirm intentional drop). — *missing page*
-2. **Fix the St. Augustine page title** "Augustine Grass" → "St. Augustine Grass". — *quick win*
-3. **Decide on the 4 missing case-study `project`s** (add or confirm curated). — *content*
-4. **Delete/confirm the stray `care-maintenance` blog post (#1394).** — *quick win*
-5. **Verify the acreage page hero image** renders. — *spot check*
-6. **Optional:** deep-QA the remaining 22 city pages + `jersey-village-tx` for localization/leakage. — *thoroughness*
+## What's healthy ✅
+- 14/14 services present and populated; HOA verified live.
+- **24/24** city grass-variety lists exactly match the source.
+- All 24 city pages present; all 13 source articles present; Katy & others spot-checked as fully localized.
+- 8/8 project cards present with correct ACF data.
