@@ -1,14 +1,11 @@
 === Grass Projects Importer ===
-Version 1.0.0
+Version 1.1.0
 
 What it does
 ------------
-1. Creates the 4 "Completed projects" cards that were missing from the WordPress
-   `project` post type (the original grasshouston.com homepage shows 8; only 4
-   had been migrated). Matches by slug and updates in place (safe to re-run).
-2. Disables the single-page view for the `project` post type — these posts are
-   only ever shown as cards in the homepage grid, so single project URLs now
-   return 404. The Elementor loop grid that renders the cards is unaffected.
+Creates the 4 "Completed projects" cards that were missing from the WordPress
+`project` post type (the original grasshouston.com homepage shows 8; only 4 had
+been migrated). Matches by slug and updates in place (safe to re-run).
 
 The 4 projects created
 ----------------------
@@ -17,41 +14,31 @@ The 4 projects created
   sh-99-slope-stabilization      — SH-99 Embankment Stabilization (Erosion Control)
   klein-isd-athletic-field       — Klein ISD Athletic Field (Sports Field)
 
-Each card carries: title, project-category term (created if missing), location,
-size, method, and the source card image as the Featured Image. The source also
-has a "scope" field, but the WordPress card template does not display it, so it
-is not written.
+What gets written per card (ACF "Project Details" group)
+--------------------------------------------------------
+  location          = source card location   (e.g. "Pearland, TX")
+  area              = source card size        (e.g. "42 lots")
+  services_name     = source card method      (e.g. "St. Augustine sod, ...")
+  short_description = source card scope        (e.g. "42-lot final-grade sod ...")
+plus the project-category term (created if missing) and the source card image as
+the Featured Image. Requires ACF active.
 
-How the card fields are mapped (no guessing)
---------------------------------------------
-location / size / method are stored in custom postmeta whose key names are not
-exposed over the REST API. Instead of hardcoding a guess, the plugin AUTO-DETECTS
-those keys by reading the 4 existing project posts and matching their known card
-values (e.g. "Magnolia, TX", "14 acres"). The detected keys are shown at the top
-of the admin page. If detection fails (shows "NOT FOUND"), click Inspect and the
-mapping can be corrected before importing.
+Disabling the single-page view (do this natively)
+-------------------------------------------------
+These posts are only shown as cards, so disable their single pages with the
+native post-type setting rather than code:
+  1. Edit the `project` post type and UNCHECK "Publicly Queryable".
+  2. Settings -> Permalinks -> Save (flushes rewrite rules).
+Single project URLs will then 404; the Elementor card grid is unaffected (loop
+grids query by post type, which this setting does not block). This importer does
+NOT change that setting.
 
 Install & run
 -------------
-1. Plugins -> Add New -> Upload Plugin -> the zip -> Activate.
+1. Plugins -> Add New -> Upload Plugin -> the zip -> Activate (ACF must be active).
 2. Tools -> Projects Import.
-3. Confirm the "Detected card meta keys" banner shows real keys (not NOT FOUND).
-4. Click "Preview (dry run)" to see the create plan, then "Run Import".
+3. Click "Inspect existing project ACF values" and confirm the mapping looks
+   right (location / area / services_name / short_description on the existing 4
+   cards).
+4. "Preview (dry run)" to see the create plan, then "Run Import".
    Re-running is safe (updates by slug, never duplicates).
-
-Single-page disable — keep this active
---------------------------------------
-The single-page 404 behaviour only applies while this plugin is active. If you
-later delete the importer but still want single project pages disabled, move this
-snippet into your child theme's functions.php:
-
-  add_filter('register_post_type_args', function($a,$n){
-    if($n==='project'){ $a['publicly_queryable']=false; $a['exclude_from_search']=true;
-      $a['has_archive']=false; $a['rewrite']=false; }
-    return $a;
-  },20,2);
-  add_action('template_redirect', function(){
-    if(is_singular('project')){ global $wp_query; $wp_query->set_404(); status_header(404); }
-  });
-
-Then visit Settings -> Permalinks once (no changes needed) to flush rewrite rules.
