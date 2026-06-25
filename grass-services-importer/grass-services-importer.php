@@ -3,7 +3,7 @@
  * Plugin Name:       Grass Services Importer
  * Plugin URI:        https://grasshouston.com
  * Description:        Imports per-service content (from the original grasshouston.com) into the "service" CPT — the "Services Details" ACF fields plus post title and post content. Matches by slug and updates in place (no duplicates). Tools -> Services Import.
- * Version:           1.6.0
+ * Version:           1.8.0
  * Author:            GrassHouston
  * License:           GPL-2.0+
  * Requires at least: 5.8
@@ -139,6 +139,10 @@ function grass_svc_render_page() {
 		<h1>Grass Services Importer</h1>
 		<p>Imports the <strong>per-service content</strong> from the original grasshouston.com into the <code><?php echo esc_html( GRASS_SVC_POST_TYPE ); ?></code> post type. Matches by slug and updates in place (no duplicates), so it both <em>corrects</em> existing pages and <em>creates</em> the missing ones.</p>
 
+		<?php $active = grass_svc_active_slugs(); if ( ! empty( $active ) ) : ?>
+			<div class="notice notice-info inline"><p><strong>Scoped run:</strong> only these <strong><?php echo count( $active ); ?></strong> services will be created/updated — <code><?php echo implode( '</code>, <code>', array_map( 'esc_html', $active ) ); ?></code>. Every other service (including the previously-imported ones) is left untouched. To process all services, empty <code>grass_svc_active_slugs()</code>.</p></div>
+		<?php endif; ?>
+
 		<?php if ( ! $acf_ready ) : ?><div class="notice notice-error"><p><strong>ACF not active.</strong> Activate Advanced Custom Fields first.</p></div><?php endif; ?>
 		<?php if ( ! $cpt_ok ) : ?><div class="notice notice-warning"><p>Post type <code><?php echo esc_html( GRASS_SVC_POST_TYPE ); ?></code> is not registered — activate your Services CPT first.</p></div><?php endif; ?>
 
@@ -155,8 +159,8 @@ function grass_svc_render_page() {
 
 		<hr>
 		<h2>Clean up extra services</h2>
-		<p>Your Services menu auto-lists <em>every</em> <code>service</code> post. Only these <strong>7</strong> are canonical:
-			<code>sod-installation</code>, <code>hydroseeding</code>, <code>hydromulching</code>, <code>erosion-control-sod-hydroseed</code>, <code>grass-repair</code>, <code>rye-grass-overseeding</code>, <code>lawn-replacement</code>.
+		<p>Your Services menu auto-lists <em>every</em> <code>service</code> post. Only these <strong>10</strong> are canonical:
+			<code>sod-installation</code>, <code>hydroseeding</code>, <code>hydromulching</code>, <code>erosion-control-sod-hydroseed</code>, <code>grass-repair</code>, <code>rye-grass-overseeding</code>, <code>lawn-replacement</code>, <code>acreage-estate-turf-installation</code>, <code>sports-turf-installation</code>, <code>new-construction-turf</code>.
 			Any other <code>service</code> post is sent to <strong>Trash</strong> (reversible — restore from Posts &rarr; Trash). Preview first.</p>
 		<form method="post">
 			<?php wp_nonce_field( 'grass_svc_run' ); ?>
@@ -224,11 +228,28 @@ function grass_svc_render_page() {
 /* -------------------------------------------------------------------------
  *  Import
  * ---------------------------------------------------------------------- */
+/**
+ * Slugs the importer is allowed to create/update in this run. Everything else in
+ * services-data.php is skipped, so previously-imported pages are never touched.
+ * Return an empty array() to lift the gate and process every service.
+ */
+function grass_svc_active_slugs() {
+	return array(
+		'acreage-estate-turf-installation',
+		'sports-turf-installation',
+		'new-construction-turf',
+	);
+}
+
 function grass_svc_run_import( $dry_run ) {
 	$services = grass_svc_services();
+	$active   = grass_svc_active_slugs();
 	$results  = array();
 
 	foreach ( $services as $s ) {
+		// Gate: only touch the active slugs (if the gate list is non-empty).
+		if ( ! empty( $active ) && ! in_array( $s['slug'], $active, true ) ) { continue; }
+
 		$existing = get_page_by_path( $s['slug'], OBJECT, GRASS_SVC_POST_TYPE );
 		$action   = $existing ? 'update' : 'create';
 		$post_id  = $existing ? (int) $existing->ID : 0;
@@ -305,6 +326,9 @@ function grass_svc_canonical_slugs() {
 		'grass-repair',
 		'rye-grass-overseeding',
 		'lawn-replacement',
+		'acreage-estate-turf-installation',
+		'sports-turf-installation',
+		'new-construction-turf',
 	);
 }
 

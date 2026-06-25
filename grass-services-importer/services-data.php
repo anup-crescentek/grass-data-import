@@ -15,9 +15,15 @@
  *   how_it_works         -> meta _sa_how_it_works_data   (source process: heading/content; empty = plugin uses generic)
  *   faqs                 -> meta _sa_services_faq_data    (source faqs: question/answer)
  *
- * Only hydroseeding has its own key_features/how_it_works/faqs in the source;
- * the other five are stubs (heading + intro + bullets), so their key_features
- * and faqs are empty and how_it_works falls back to the shared generic steps.
+ * In the source bundle, hydroseeding and acreage-estate-turf-installation carry
+ * their own key_features/how_it_works/faqs. Every other service was a stub in the
+ * source (heading + intro + bullets only); those have hand-written body, pricing,
+ * key_features, and faqs added here so each page matches the rest. how_it_works is
+ * left empty on the hand-written services so it falls back to the shared generic
+ * steps (only hydroseeding and acreage carry their own source process steps).
+ *
+ * NOTE: which of these services the importer actually writes is gated by
+ * grass_svc_active_slugs() in the main plugin file — see that function.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
@@ -282,6 +288,141 @@ function grass_svc_services() {
 				array( 'question' => 'Sod or hydroseed for a replacement?', 'answer' => 'Sod gives an instant finished lawn and suits most residential yards. On larger properties a hybrid — sod in the visible zones, hydroseed across the rest — often makes more sense on cost. We will quote what fits your lot.' ),
 				array( 'question' => 'How long does a replacement take?', 'answer' => 'Most residential replacements are completed in a few days depending on removal and prep needs; larger or drainage-heavy jobs take longer. New sod is walkable in about three weeks and fully established in around six.' ),
 				array( 'question' => 'What grass should the new lawn be?', 'answer' => 'Matched to your lot: St. Augustine for meaningful shade, Bermuda for full sun and heavy traffic, Zoysia as a premium upgrade. We recommend based on your actual sun, soil, and use — not on what was there before.' ),
+			),
+		),
+		array(
+			'slug'                 => 'acreage-estate-turf-installation',
+			'title'                => 'Acreage & Estate Sod Installation',
+			'image'                => 'https://d64gsuwffb70l.cloudfront.net/6a0d29e1debea06021d065ea_1779247810390_08d59034.png',
+			'heading'              => 'Acreage & Estate Sod Installation Across Greater Houston',
+			'short_description'    => '<p>The high-end acreage segment is where our hybrid sod-and-hydroseed model shines. Premium sod near the home and amenities, engineered hydroseeding across outer pasture and low-traffic zones, all from one experienced team.</p>',
+			'content'              => '<p>Acreage and estate properties are the segment GrassHouston was built to serve, and it is where our hybrid sod-and-hydroseed model delivers the most value. A 5-acre Fulshear estate, a 14-acre Magnolia ranch, an 80-acre Conroe horse property — at this scale, full-sod installs almost never pencil out, and full-hydroseed installs do not deliver the curb appeal these properties require. The right answer is engineered zoning: premium sod where the eye and the lifestyle actually land, hydroseeding everywhere else.</p>
+
+<p>Acreage installs require a different kind of expertise than suburban lots. Equipment access matters — can we get a hydroseeder truck within 200 feet of every zone, or do we need long hose runs and bigger pumps? Soil varies dramatically across a single property — the front three acres of a Magnolia estate can sit on sandy loam while the back eleven acres sit on clay-influenced bottomland. Drainage matters at scale — water that pools on a quarter-acre lot is annoying; water that pools across two acres of pasture is a turf killer. We bring the equipment, the experience, and the planning discipline these properties demand.</p>
+
+<p>Beyond the lawn itself, acreage projects almost always require coordination with adjacent crews: land-clearing teams that come in before we do, grading contractors who set the final elevations, irrigation companies that pull water to outer zones, and (on equestrian and ranch properties) fence and paddock installers whose timelines interlock with ours. We have run these projects often enough to know how to sequence them — and how to absorb the inevitable schedule slips from upstream crews without throwing the lawn timeline off.</p>
+
+<p>We have delivered acreage and estate installs across Fulshear, Magnolia, Conroe, Willis, Hockley, Cypress, Richmond, and Tomball — properties ranging from 1-acre custom homesites to 100+ acre working ranches. The crew, the equipment, and the warranty are constant; the seed and sod blends and the prep discipline get tuned to each property.</p>',
+			'what_drives_the_cost' => '<p>Acreage and estate pricing is always custom — the per-acre rate on a 2-acre Fulshear estate is meaningfully higher than the per-acre rate on a 60-acre Hockley ranch, because mobilization, prep, and crew time amortize differently at different scales. We do not quote acreage projects from a phone call or a per-square-foot rate; the only honest quote is one written after a site walk.</p>
+
+<p>The sod-to-hydroseed ratio is the biggest cost lever, and it is calibrated during the walk. A 5-acre estate might split 0.5 acre sod / 4.5 acres hydroseed (~10/90); a luxury 2-acre custom home might split 1 acre sod / 1 acre hydroseed (50/50). Other meaningful drivers: equipment access to outer zones, the amount of land-clearing or grading needed before our crew arrives, drainage corrections, and any erosion-control or SWPPP requirements on slopes and pond banks.</p>
+
+<p>As a planning reference: typical acreage and estate projects in the Houston market range from roughly $5,000 on smaller 1-acre hybrid hometis to $75,000+ on large multi-acre estate and ranch projects, with working-ranch and commercial-acreage installs quoted as custom bids. The dollars sound large until you compare them to a full-sod approach on the same property — at which point most owners write the check happily.</p>',
+			'whats_included'       => array(
+				'Properties from 1 acre to 100+ acres',
+				'Hybrid zoning to maximize appearance and budget',
+				'Ranch entries, equestrian areas, and pond banks',
+				'Coordinated with land-clearing and grading crews',
+			),
+			'key_features'         => array(
+				array( 'heading' => 'Estate homeowners (1–20+ acres)', 'content' => 'Hybrid sod-and-hydroseed plan tuned to your property — premium sod near the home, engineered hydroseed across outer pasture and outer-fence-line acreage.' ),
+				array( 'heading' => 'Custom-build estate projects', 'content' => 'Coordinated with your builder, landscape architect, and irrigation contractor at the final-grade stage. We come in as the closing-week lawn install on multi-million-dollar custom builds.' ),
+				array( 'heading' => 'Ranch and equestrian properties', 'content' => 'Sodded entries, paddock perimeters, turn-out gates, and barn surrounds; hydroseeded pasture and rotation zones with grazing-ready Bermuda blends.' ),
+				array( 'heading' => 'Lake-adjacent and pond-front estates', 'content' => 'Sod near the home and dock approach, hydroseed across outer slopes, bonded fiber matrix on pond banks. We coordinate with our erosion-control crews on shoreline work.' ),
+				array( 'heading' => 'Master-planned community common areas at scale', 'content' => 'Entry features, monument zones, and amenity centers get sod for review-clearing curb appeal; medians and outer parks get hydroseed for sustainable HOA budgets.' ),
+				array( 'heading' => 'Land-development and acreage subdivision closeouts', 'content' => 'Multi-lot hybrid programs for developers turning rural acreage into subdivided estate lots — coordinated grass install across an entire phase or filing.' ),
+			),
+			'how_it_works'         => array(
+				array( 'heading' => 'Property walk-through and aerial review', 'content' => 'We walk the property with the owner (or property manager), pull the aerial, and dig soil samples in 3–6 representative zones to map variability before quoting.' ),
+				array( 'heading' => 'Zone map and hybrid plan', 'content' => 'A property map with sod zones, hydroseed zones, drainage corrections, and access notes — quoted line-item so you see exactly where the dollars go.' ),
+				array( 'heading' => 'Coordination with adjacent crews', 'content' => 'We sequence with your land-clearing, grading, irrigation, and fencing contractors so the lawn install lands at the right moment in the project calendar.' ),
+				array( 'heading' => 'Multi-phase site prep', 'content' => 'Demo, soil amendment, grading, and drainage corrections in the sod zones; light tillage, weed clearance, and surface prep across hydroseed zones — all in coordinated phases.' ),
+				array( 'heading' => 'Sod and hydroseed install', 'content' => 'Premium sod zones installed first for instant finished appearance; truck-mounted hydroseed application across the outer acreage. Bonded fiber matrix or blanket overlay on any slope or pond bank that requires it.' ),
+				array( 'heading' => 'Establishment walks and 90-day warranty', 'content' => 'Establishment walks at day 14, day 30, and day 90 — uniform stand verification, thin-spot re-application under warranty, and a custom long-term care calendar for the owner or property manager.' ),
+			),
+			'faqs'                 => array(
+				array( 'question' => 'Is hybrid sod + hydroseed always the right answer for acreage?', 'answer' => 'For 90%+ of properties over an acre, yes. The exceptions are: (1) very small acreage where the back zones are also visible and high-traffic, in which case full sod might be justified, and (2) raw working ranches where the entire property is functionally pasture, in which case full hydroseed is the right answer. We will tell you honestly which bucket your property falls in.' ),
+				array( 'question' => 'How long does an acreage install take to complete?', 'answer' => 'Most 1–5 acre hybrid projects complete in 3–7 working days, weather permitting. Larger 10–20+ acre projects run 2–4 weeks depending on prep and coordination with adjacent crews. The sod component installs in 1–3 days; the hydroseed component completes in 1–2 days; the rest is prep, grading, drainage, and clean-up.' ),
+				array( 'question' => 'Can you coordinate with my builder, irrigation, and fence contractor?', 'answer' => 'Yes — and we expect to. Acreage projects almost always involve sequencing with 2–4 other trades. We work directly with builder superintendents, landscape architects, irrigation contractors, and fence installers to slot the lawn install at the right moment without delaying other work.' ),
+				array( 'question' => 'How do you handle drainage on a multi-acre property?', 'answer' => 'We map low spots and water flow during the walk-through, and we coordinate corrections with civil-engineering and earthwork crews when the property needs them. On smaller drainage issues we install French drains, channel drains, and surface re-grading directly. On larger drainage redesigns we partner with engineering firms.' ),
+				array( 'question' => 'Do you handle pond banks, slopes, and erosion-control zones?', 'answer' => 'Yes. Pond banks, drainage easements, and slopes steeper than 3:1 typically get bonded fiber matrix hydromulch with erosion-control blanket overlay, sequenced as part of the broader install. We are bondable and routinely work with civil engineers on SWPPP-permitted acreage.' ),
+				array( 'question' => 'What seed and sod varieties do you use for acreage?', 'answer' => 'Sod zones near the home almost always get St. Augustine (Palmetto or ProVista for shade tolerance) or Zoysia (Zeon for premium estates). Hydroseed zones across pasture and outer acreage get Bermuda blends (Sahara, Princess, common) — sometimes paired with annual rye as a quick-cover nurse crop. We tune the blend to your sun, soil, and use case.' ),
+				array( 'question' => 'Do you do equestrian properties?', 'answer' => 'Regularly. Equestrian work has its own quirks — paddock perimeters need traffic-tolerant Bermuda, turn-out zones need grazing-safe seed blends (no toxic species), and barn surrounds often need premium sod for the show-property look. We have installed across enough equestrian properties to plan for all of it.' ),
+				array( 'question' => 'Is there a warranty on acreage installs?', 'answer' => 'Yes — every acreage project includes establishment walks at day 14, day 30, and day 90, plus a workmanship warranty on the install itself. Thin spots in the hydroseed zones are re-applied under warranty; sod that fails to establish from anything other than clear neglect is replaced.' ),
+			),
+		),
+		array(
+			'slug'                 => 'sports-turf-installation',
+			'title'                => 'Sports Field Sod Installation',
+			'image'                => 'https://d64gsuwffb70l.cloudfront.net/6a0d29e1debea06021d065ea_1779247828949_b4bf2d2f.jpg',
+			'heading'              => 'Sports Field Sod Installation for Houston Fields & Facilities',
+			'short_description'    => '<p>Bermuda-dominant athletic sod installs for schools, leagues, parks, and private facilities — including base prep, laser grading, and post-install grow-in protocols.</p>',
+			'content'              => '<p>An athletic field is a different discipline than a lawn. It has to absorb cleats, pivots, and concentrated traffic, shed a Houston downpour fast enough to stay playable, and present a uniform, safe surface every time it is used. We build Bermuda-dominant fields engineered for play and safety first — not just for appearance — for schools, leagues, municipal parks, and private facilities across Greater Houston.</p>
+
+<p>The base is everything on a field. We laser-grade the surface to precise planes with the right crown or slope so water sheets off instead of ponding, prepare and amend the root zone, and finish-grade out the low spots that hold water and the high spots that scalp under a mower. Get the base and drainage right and the field plays true and recovers fast; get it wrong and no grass variety will save it.</p>
+
+<p>Variety selection is matched to the sport, the budget, and the maintenance capacity. Tifway 419 Bermuda is the workhorse for Houston athletic fields — dense, aggressive in recovery, and highly traffic tolerant. Where a facility wants faster wear recovery or better drought performance, we step up to premium cultivars like TifTuf or Celebration. Every field is specified to how it will actually be used.</p>
+
+<p>Grow-in is where fields are won or lost, so every install comes with a grow-in fertility and irrigation program to bring the new sod to a mature, knitted, game-ready stand. For warm-season Bermuda fields we also offer winter rye overseeding to hold color and playability through the dormant months, with a managed spring transition back to the Bermuda base.</p>',
+			'what_drives_the_cost' => '<p>Field pricing is driven far more by base preparation than by the sod itself. Laser grading, root-zone work, and drainage corrections are the real cost variables — a flat, well-drained existing base is a fraction of the cost of a field that needs regrading, a rebuilt crown, or a new root zone before any grass goes down.</p>
+
+<p>Grass variety and field size move the number next: Tifway 419 versus premium cultivars, and a full field versus a practice area or a renovation-and-overseed program. Irrigation condition and whether the grow-in fertility program is bundled in also factor into the quote.</p>
+
+<p>Because a field lives or dies on its base and drainage design, we never quote one over the phone. We walk the site, review the drainage plan, and price the specific grading, prep, and sod the field actually needs to play safe and last.</p>',
+			'whats_included'       => array(
+				'Tifway 419 and premium athletic Bermuda varieties',
+				'Laser grading and base preparation',
+				'Grow-in fertility and irrigation guidance',
+				'Renovation and overseed programs',
+			),
+			'key_features'         => array(
+				array( 'heading' => 'Schools and ISD athletic departments', 'content' => 'Game and practice fields built to a safe, uniform, durable standard and scheduled around the school calendar and season.' ),
+				array( 'heading' => 'Youth and adult sports leagues', 'content' => 'High-traffic league fields with the wear tolerance and fast Bermuda recovery a full season of play demands.' ),
+				array( 'heading' => 'Municipal parks and recreation', 'content' => 'Public multi-use athletic fields installed by an insured, bondable crew with clean documentation and warranty walks.' ),
+				array( 'heading' => 'Private and club sports facilities', 'content' => 'Premium Bermuda playing surfaces for academies, training centers, and club programs that need a show-quality field.' ),
+				array( 'heading' => 'Field renovation and overseed', 'content' => 'Tired or worn fields re-leveled, re-sodded in the worn zones, and overseeded back to a playable standard without a full rebuild.' ),
+				array( 'heading' => 'Multi-field complexes', 'content' => 'Phased installs across multiple fields, sequenced around your play schedule and maintenance windows.' ),
+			),
+			'how_it_works'         => array(),
+			'faqs'                 => array(
+				array( 'question' => 'What grass do you use for Houston sports fields?', 'answer' => 'Tifway 419 Bermuda is the default — dense, traffic tolerant, and aggressive in recovery. Where budget and performance goals justify it we step up to premium cultivars like TifTuf or Celebration. Bermuda is the right family for athletic play in our climate.' ),
+				array( 'question' => 'Why is laser grading important for a field?', 'answer' => 'A field has to drain and play uniformly. Laser grading sets precise surface planes and the correct crown or slope so water sheets off instead of ponding, and so there are no low or high spots that affect play, mowing, or player safety.' ),
+				array( 'question' => 'How long before a new field is playable?', 'answer' => 'New Bermuda sod knits in over about 2–3 weeks and is typically game-ready in roughly 4–8 weeks depending on season, reaching full maturity over a growing season. We time installs so the field is ready for your season opener.' ),
+				array( 'question' => 'Can you renovate an existing field instead of a full rebuild?', 'answer' => 'Often, yes. If the base and drainage are sound, we can re-level, re-sod the worn zones, and overseed the field back to standard for far less than a full rebuild. We assess the base and drainage first and tell you honestly which the field needs.' ),
+				array( 'question' => 'Do you keep fields green through winter?', 'answer' => 'Yes. Warm-season Bermuda goes dormant and tan in winter, so we offer rye overseeding to hold color and playability through the off-season, followed by a managed spring transition back to the Bermuda base.' ),
+				array( 'question' => 'Do you install for schools and municipalities?', 'answer' => 'Yes. We are licensed, insured, and bondable, run dedicated crews for bid-document work, and provide the scheduling discipline and documentation that public and institutional projects require.' ),
+			),
+		),
+		array(
+			'slug'                 => 'new-construction-turf',
+			'title'                => 'New Construction Sod Installation',
+			'image'                => 'https://d64gsuwffb70l.cloudfront.net/6a0d29e1debea06021d065ea_1779247846886_7f420ca0.jpg',
+			'heading'              => 'New Construction Sod Installation',
+			'short_description'    => '<p>We come in at final grade with the equipment, manpower, and scheduling discipline production and custom builders need to close out lots cleanly and on time.</p>',
+			'content'              => '<p>New-construction lawns live or die on timing and final grade. We are built to come in at the closeout stage of a build — production or custom — with the crews, equipment, and scheduling discipline to take a lot from rough, compacted construction dirt to a finished lawn without holding up the closing.</p>
+
+<p>The hard part of a new build is the soil. After construction the yard is compacted, often stripped of its topsoil, littered with debris, and rarely at a finished grade that drains. We handle final-grade soil prep, debris clean-up, topsoil and amendment where the spec calls for it, and the drainage corrections that keep the new lawn — and the builder\'s warranty — out of trouble down the road.</p>
+
+<p>Then we install whatever the plan and lot call for: sod for instant finished curb appeal on the visible lot, engineered hydroseed for larger or acreage lots, or a hybrid of both. Grass variety is matched to the lot\'s sun exposure and the builder\'s spec — St. Augustine for shade, Bermuda for full sun and traffic, Zoysia as a premium upgrade.</p>
+
+<p>We run production-builder programs — repeatable, scheduled lot closeouts across an entire community — as well as one-off custom-home installs, coordinating with the superintendent, irrigation contractor, and landscape crews so the lawn drops into the right slot in the closing schedule. Across Greater Houston, on the builder\'s calendar, not a gardening one.</p>',
+			'what_drives_the_cost' => '<p>New-construction pricing is driven mostly by the shape the lot is left in. A lot delivered at clean final grade with topsoil is a straightforward sod drop; a compacted, debris-strewn, off-grade lot needs clean-up, soil prep, amendment, and drainage work before any grass goes down — and that prep is the real cost variable.</p>
+
+<p>Method and variety move the number next: sod versus hydroseed versus a hybrid plan, and St. Augustine versus Bermuda versus premium Zoysia. On larger and acreage lots a hybrid sod-plus-hydroseed plan cuts cost substantially versus all-sod. Lot size and irrigation readiness round it out.</p>
+
+<p>For production builders we set up program pricing across a community for predictable, repeatable closeouts; custom homes are quoted per lot. Either way we confirm the number after seeing the grade the lot is in and the spec it has to meet.</p>',
+			'whats_included'       => array(
+				'Production builder and custom builder programs',
+				'Final-grade soil prep and clean-up',
+				'Quick-turn scheduling around closings',
+				'Sod, hydroseed, or hybrid per plan',
+			),
+			'key_features'         => array(
+				array( 'heading' => 'Production builders', 'content' => 'Repeatable, scheduled lot-closeout programs across a community, with consistent quality and predictable, pre-agreed pricing.' ),
+				array( 'heading' => 'Custom-home builders', 'content' => 'Final-grade lawn installs coordinated with your superintendent, irrigation, and landscape crews to land cleanly on the closing date.' ),
+				array( 'heading' => 'Final-grade soil prep and clean-up', 'content' => 'Compaction relief, construction-debris removal, topsoil and amendment, and finish grading so the new lawn actually establishes.' ),
+				array( 'heading' => 'Drainage correction at closeout', 'content' => 'Low spots and grade problems fixed before the sod goes down — protecting both the new lawn and the builder\'s warranty.' ),
+				array( 'heading' => 'Sod, hydroseed, or hybrid per plan', 'content' => 'The right method for the lot, from instant-curb-appeal sod to engineered hydroseed across larger and acreage lots.' ),
+				array( 'heading' => 'Move-in-ready handoff', 'content' => 'A finished, watered-in lawn with a simple care plan ready for the new homeowner on day one.' ),
+			),
+			'how_it_works'         => array(),
+			'faqs'                 => array(
+				array( 'question' => 'Can you hit our closing dates?', 'answer' => 'Yes — quick-turn scheduling around closings is the core of our builder programs. We slot the install into the closeout sequence and size the crew to finish on time, so the lawn never holds up a closing.' ),
+				array( 'question' => 'The lot is compacted construction dirt — can you still install?', 'answer' => 'That is the normal starting condition on a new build. We relieve compaction, clear construction debris, bring in topsoil and amendment where needed, and set a finished, draining grade before any sod or seed goes down.' ),
+				array( 'question' => 'Sod or hydroseed for a new build?', 'answer' => 'Sod for instant finished curb appeal on standard lots; engineered hydroseed for larger or acreage lots; and often a hybrid of both. We match the method to the lot size, visibility, and your spec.' ),
+				array( 'question' => 'Do you offer program pricing for production builders?', 'answer' => 'Yes. For repeatable lot closeouts across a community we set up program pricing and a standing schedule, so every lot is predictable on both cost and timing.' ),
+				array( 'question' => 'What grass will you install?', 'answer' => 'Matched to the lot and your spec: St. Augustine for shade, Bermuda for full sun and traffic, and Zoysia as a premium upgrade. We recommend per lot based on sun, soil, and use.' ),
+				array( 'question' => 'Who handles watering after install?', 'answer' => 'We water in at install and leave a clear watering and care plan for the homeowner or your warranty crew. On builder programs we can coordinate the establishment hand-off so nothing falls through the cracks.' ),
 			),
 		),
 	);
