@@ -4,6 +4,8 @@
 **Destination:** coral-hare-833726.hostingersite.com (WordPress + Elementor), via WP REST API + front-end fetches.
 **Date:** 2026-06-26 (round 2 — after the HOA import)
 
+> **FINAL SWEEP (pre-client): ALL CHECKS PASSED ✅** — automated verification of post-type coverage (service 11, pages, services-areas 24, blog 13, project 8, grass pages 3), grass-type titles, all 24 city pages (grass varieties + content-leak heading check + Houston-leak scan), key service/project front-end renders, single-page disable, and stray-post removal. Zero failures.
+
 > Method note: `service` / `services-areas` posts return empty `content.rendered` over REST (Elementor/ACF-rendered). Depth + grass-variety checks were done against the **front-end HTML**.
 
 ---
