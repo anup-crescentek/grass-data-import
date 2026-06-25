@@ -3,7 +3,7 @@
  * Plugin Name:       Grass Services Importer
  * Plugin URI:        https://grasshouston.com
  * Description:        Imports per-service content (from the original grasshouston.com) into the "service" CPT — the "Services Details" ACF fields plus post title and post content. Matches by slug and updates in place (no duplicates). Tools -> Services Import.
- * Version:           1.8.0
+ * Version:           1.9.0
  * Author:            GrassHouston
  * License:           GPL-2.0+
  * Requires at least: 5.8
@@ -159,8 +159,8 @@ function grass_svc_render_page() {
 
 		<hr>
 		<h2>Clean up extra services</h2>
-		<p>Your Services menu auto-lists <em>every</em> <code>service</code> post. Only these <strong>10</strong> are canonical:
-			<code>sod-installation</code>, <code>hydroseeding</code>, <code>hydromulching</code>, <code>erosion-control-sod-hydroseed</code>, <code>grass-repair</code>, <code>rye-grass-overseeding</code>, <code>lawn-replacement</code>, <code>acreage-estate-turf-installation</code>, <code>sports-turf-installation</code>, <code>new-construction-turf</code>.
+		<p>Your Services menu auto-lists <em>every</em> <code>service</code> post. Only these <strong>11</strong> are canonical:
+			<code>sod-installation</code>, <code>hydroseeding</code>, <code>hydromulching</code>, <code>erosion-control-sod-hydroseed</code>, <code>grass-repair</code>, <code>rye-grass-overseeding</code>, <code>lawn-replacement</code>, <code>acreage-estate-turf-installation</code>, <code>sports-turf-installation</code>, <code>new-construction-turf</code>, <code>hoa-common-area-turf</code>.
 			Any other <code>service</code> post is sent to <strong>Trash</strong> (reversible — restore from Posts &rarr; Trash). Preview first.</p>
 		<form method="post">
 			<?php wp_nonce_field( 'grass_svc_run' ); ?>
@@ -238,6 +238,7 @@ function grass_svc_active_slugs() {
 		'acreage-estate-turf-installation',
 		'sports-turf-installation',
 		'new-construction-turf',
+		'hoa-common-area-turf',
 	);
 }
 
@@ -329,6 +330,7 @@ function grass_svc_canonical_slugs() {
 		'acreage-estate-turf-installation',
 		'sports-turf-installation',
 		'new-construction-turf',
+		'hoa-common-area-turf',
 	);
 }
 

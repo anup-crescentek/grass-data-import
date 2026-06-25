@@ -425,5 +425,47 @@ function grass_svc_services() {
 				array( 'question' => 'Who handles watering after install?', 'answer' => 'We water in at install and leave a clear watering and care plan for the homeowner or your warranty crew. On builder programs we can coordinate the establishment hand-off so nothing falls through the cracks.' ),
 			),
 		),
+		array(
+			'slug'                 => 'hoa-common-area-turf',
+			'title'                => 'HOA Common Area Sod',
+			'image'                => 'https://d64gsuwffb70l.cloudfront.net/6a0d29e1debea06021d065ea_1779247828949_b4bf2d2f.jpg',
+			'heading'              => 'HOA Common Area Sod Installation & Restoration',
+			'short_description'    => '<p>Master-planned communities and HOAs trust us to keep entries, medians, parks, and amenity-center lawns looking like the marketing photos year after year.</p>',
+			'content'              => '<p>The common areas are the face of a community — the entry monument, the boulevard medians, and the amenity-center and pool lawns are what residents drive past every day and what prospective buyers see first. We install and restore HOA common-area turf so those spaces look like the marketing photos year after year, working on the schedule and within the approval process that community management actually runs on.</p>
+
+<p>HOA work is as much about coordination as it is about grass. Boards approve on a cycle, budgets run by fiscal year, and the common areas have to stay presentable while the work happens. We are built for it — we quote in a board-ready format, schedule around community events and irrigation windows, stage the work so entries and amenity areas are never all torn up at once, and keep the property manager in the loop from the first walk-through to the final establishment walk.</p>
+
+<p>The right grass for a common area depends on the zone. High-visibility entries and monument beds often justify premium sod — Zoysia or a clean St. Augustine — for instant, manicured curb appeal, while large medians, parks, and outer common areas are better served by Bermuda sod or engineered hydroseed where the budget has to stretch across a lot of square footage. We map the community zone by zone and recommend where to spend and where to save.</p>
+
+<p>We also run storm and drought recovery programs for associations. After a freeze, flood, or drought stretch the common areas are usually the first thing residents complain about — so we diagnose what failed, restore the affected zones to match the rest, and can put the community on a predictable maintenance-and-replacement cadence so the board is not reacting to an emergency every season. Across Greater Houston\'s master-planned communities, on the manager\'s schedule.</p>',
+			'what_drives_the_cost' => '<p>HOA common-area pricing is driven by total area and by how many separate zones the work touches — a single entry monument is a small, premium job; a community-wide refresh across entries, medians, and amenity lawns is a staged, larger one. The sod-versus-hydroseed mix across those zones is the biggest cost lever, the same way it is on acreage.</p>
+
+<p>Grass selection and access matter next: premium Zoysia or St. Augustine on the showcase zones versus Bermuda or hydroseed on the broad outer areas, plus how easily crews and equipment can reach medians and islands without disrupting traffic or residents. Any drainage correction, irrigation coordination, or phasing needed to keep the community presentable during the work also factors in.</p>
+
+<p>For associations we quote in a board-ready, line-item format and can structure larger refreshes in phases to fit a fiscal-year budget. Because the right plan depends on the community\'s zones and standards, we walk the property with the manager before quoting rather than pricing common-area work over the phone.</p>',
+			'whats_included'       => array(
+				'Entry features, monuments, and medians',
+				'Amenity center and pool-area lawns',
+				'Storm and drought recovery programs',
+				'Predictable scheduling for property managers',
+			),
+			'key_features'         => array(
+				array( 'heading' => 'HOA and community association boards', 'content' => 'Board-ready, line-item proposals and a finish that keeps entries and amenities looking like the community\'s marketing photos.' ),
+				array( 'heading' => 'Property and community managers', 'content' => 'Predictable scheduling, single-point coordination, and staged work that never leaves the community torn up all at once.' ),
+				array( 'heading' => 'Entry features, monuments, and medians', 'content' => 'High-visibility showcase zones installed in premium sod for instant, manicured curb appeal at the front door of the community.' ),
+				array( 'heading' => 'Amenity centers, pools, and parks', 'content' => 'Gathering-space lawns built to take foot traffic and stay presentable through the season and the events calendar.' ),
+				array( 'heading' => 'Master-planned community developers', 'content' => 'Common-area and amenity turf across new phases, coordinated with builders, irrigation, and landscape architects.' ),
+				array( 'heading' => 'Storm and drought recovery programs', 'content' => 'Post-freeze, flood, and drought restoration of common areas, with a predictable replacement cadence the board can budget around.' ),
+			),
+			'how_it_works'         => array(),
+			'faqs'                 => array(
+				array( 'question' => 'Do you provide board-ready proposals?', 'answer' => 'Yes. We quote HOA work in a clear, line-item format the board can review and approve, and we can break a larger common-area refresh into phases that fit a fiscal-year budget.' ),
+				array( 'question' => 'Can you schedule around our community events and residents?', 'answer' => 'That is the norm for us. We sequence the work so entries and amenity areas are never all torn up at once, schedule around events and irrigation windows, and keep the property manager updated throughout.' ),
+				array( 'question' => 'What grass do you use for community common areas?', 'answer' => 'It depends on the zone: premium Zoysia or St. Augustine on high-visibility entries and monuments for an instant manicured look, and Bermuda sod or engineered hydroseed across large medians, parks, and outer areas where the budget has to stretch.' ),
+				array( 'question' => 'Do you handle just the entry, or the whole community?', 'answer' => 'Either. We do single entry-monument restorations and community-wide refreshes across entries, medians, amenity lawns, and parks — and everything in between.' ),
+				array( 'question' => 'Can you restore common areas after a freeze, flood, or drought?', 'answer' => 'Yes — storm and drought recovery is a core program for us. We diagnose what failed, restore the affected zones to match the rest, and can set up a predictable maintenance-and-replacement cadence so the board is not reacting to an emergency each season.' ),
+				array( 'question' => 'Do you coordinate with our irrigation and landscape vendors?', 'answer' => 'Yes. We work alongside the community\'s existing irrigation contractor and landscape maintenance crews so the new turf is watered in correctly and handed off cleanly.' ),
+			),
+		),
 	);
 }
